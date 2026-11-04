@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="ru" class="device-check">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="color-scheme" content="dark" />
+    <title>Wizards Duel — проверка устройства (отладка)</title>
+    <script type="module" crossorigin src="/wizards-duel-2/assets/deviceCheck-BdBTngNR.js"></script>
+    <link rel="modulepreload" crossorigin href="/wizards-duel-2/assets/modulepreload-polyfill-P2Xu9kJm.js">
+    <link rel="modulepreload" crossorigin href="/wizards-duel-2/assets/balance-8rb3x3uk.js">
+    <link rel="modulepreload" crossorigin href="/wizards-duel-2/assets/bench-report-BXXA_ixQ.js">
+    <link rel="modulepreload" crossorigin href="/wizards-duel-2/assets/bench-stats-lVxMquJ3.js">
+    <link rel="modulepreload" crossorigin href="/wizards-duel-2/assets/device-verdict-BXhPj4cB.js">
+    <link rel="modulepreload" crossorigin href="/wizards-duel-2/assets/tokens-Cw4laJjl.js">
+    <link rel="modulepreload" crossorigin href="/wizards-duel-2/assets/pose-icon-BzS9FefF.js">
+    <link rel="modulepreload" crossorigin href="/wizards-duel-2/assets/glyphs-Dd_bJTDw.js">
+    <link rel="modulepreload" crossorigin href="/wizards-duel-2/assets/device-warning-ziX0C_cD.js">
+    <link rel="modulepreload" crossorigin href="/wizards-duel-2/assets/device-check-store-CDBQ4hSN.js">
+    <link rel="modulepreload" crossorigin href="/wizards-duel-2/assets/pose-model-CItDLCP6.js">
+    <link rel="modulepreload" crossorigin href="/wizards-duel-2/assets/latency-probe-D8ymnhA4.js">
+    <link rel="modulepreload" crossorigin href="/wizards-duel-2/assets/device-check-BVJYDuPh.js">
+    <link rel="stylesheet" crossorigin href="/wizards-duel-2/assets/device-warning-Bx9Wy81h.css">
+    <link rel="stylesheet" crossorigin href="/wizards-duel-2/assets/deviceCheck-B4pv-VbK.css">
+    <link rel="stylesheet" crossorigin href="/wizards-duel-2/assets/style-BWPiffe2.css">
+  <link rel="manifest" href="/wizards-duel-2/manifest.webmanifest"></head>
+  <body class="device-check">
+    <main class="dc-page">
+      <header>
+        <h1>Проверка устройства</h1>
+        <p class="muted">
+          То, что меню запускает при каждом старте: 5 + 30 кадров инференса на синтетическом кадре (без камеры), baseLatency без звука,
+          пороги <code>device</code> из <code>balance.json</code>. <a class="menu-link" href="./">← к игре</a>
+        </p>
+      </header>
+
+      <section class="dc-progress" aria-live="polite">
+        <span id="status" class="bench-status">Запуск…</span>
+        <progress id="progress" max="35" value="0"></progress>
+      </section>
+
+      <section class="dc-controls">
+        <button id="rerun" type="button">Повторить</button>
+        <button id="simulate-slow" type="button">Имитировать медленное устройство</button>
+        <button id="simulate-audio" type="button">Имитировать задержку звука</button>
+        <button id="simulate-block" type="button">Имитировать старый браузер</button>
+        <button id="audio-gesture" type="button">Дочитать звук по жесту</button>
+        <label>Делегат
+          <select id="delegate">
+            <option value="GPU" selected>GPU → CPU при ошибке</option>
+            <option value="CPU">только CPU</option>
+          </select>
+        </label>
+      </section>
+
+      <section id="verdict" class="dc-verdict">Вердикт: ждём…</section>
+
+      <section class="dc-frame">
+        <div id="frame-holder"></div>
+        <div>
+          <p class="muted">Синтетический кадр 320×480, который видит модель. <span id="pose-found"></span></p>
+          <p class="muted">Последняя сохранённая проверка (<code>wd.deviceCheck</code>): <span id="stored">—</span></p>
+        </div>
+      </section>
+
+      <section>
+        <h2>Результат (JSON)</h2>
+        <textarea id="result" rows="24" readonly spellcheck="false"></textarea>
+      </section>
+    </main>
+  </body>
+</html>

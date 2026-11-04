@@ -1,0 +1,1 @@
+import{r as e}from"./menu-texts-B_44wxG-.js";function t(t,n=document){n.documentElement.lang=t;let r=n.querySelector(`#rotate-overlay p`);r&&(r.textContent=e[t].rotate)}export{t};

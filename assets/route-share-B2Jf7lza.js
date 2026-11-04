@@ -1,0 +1,1 @@
+import{t as e}from"./share-view-BHp9QsNA.js";var t=t=>{let n=new e({root:t.root,lang:t.lang(),onBack:()=>t.back()});return n.mount(),{dispose:()=>n.unmount()}};export{t as openShare};

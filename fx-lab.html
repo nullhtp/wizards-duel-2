@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="color-scheme" content="dark" />
+    <title>Wizards Duel — лаборатория эффектов</title>
+    <link rel="icon" type="image/svg+xml" href="/wizards-duel-2/icons/icon.svg" />
+    <script type="module" crossorigin src="/wizards-duel-2/assets/fxLab-CxcSvEE9.js"></script>
+    <link rel="modulepreload" crossorigin href="/wizards-duel-2/assets/modulepreload-polyfill-P2Xu9kJm.js">
+    <link rel="modulepreload" crossorigin href="/wizards-duel-2/assets/balance-8rb3x3uk.js">
+    <link rel="modulepreload" crossorigin href="/wizards-duel-2/assets/quality-Dp7DmYZh.js">
+    <link rel="modulepreload" crossorigin href="/wizards-duel-2/assets/preload-helper-D3NDLq5R.js">
+    <link rel="modulepreload" crossorigin href="/wizards-duel-2/assets/bench-stats-lVxMquJ3.js">
+    <link rel="modulepreload" crossorigin href="/wizards-duel-2/assets/fx-measure-DNf4Bt6X.js">
+    <link rel="modulepreload" crossorigin href="/wizards-duel-2/assets/tokens-Cw4laJjl.js">
+    <link rel="modulepreload" crossorigin href="/wizards-duel-2/assets/pose-icon-BzS9FefF.js">
+    <link rel="modulepreload" crossorigin href="/wizards-duel-2/assets/motion-Dh7dcKPN.js">
+    <link rel="modulepreload" crossorigin href="/wizards-duel-2/assets/half-frame-CsDNr1Vu.js">
+    <link rel="modulepreload" crossorigin href="/wizards-duel-2/assets/keypoints-By2prnzc.js">
+    <link rel="modulepreload" crossorigin href="/wizards-duel-2/assets/skeleton-DQ5zka-X.js">
+    <link rel="modulepreload" crossorigin href="/wizards-duel-2/assets/body-geometry-DFQukZVj.js">
+    <link rel="modulepreload" crossorigin href="/wizards-duel-2/assets/camera-overlay-BLvIbNwn.js">
+    <link rel="modulepreload" crossorigin href="/wizards-duel-2/assets/particle-presets-COlDZ_Gm.js">
+    <link rel="modulepreload" crossorigin href="/wizards-duel-2/assets/half-cropper-D5wlP5iv.js">
+    <link rel="modulepreload" crossorigin href="/wizards-duel-2/assets/pose-classifier-FRc4I_9i.js">
+    <link rel="modulepreload" crossorigin href="/wizards-duel-2/assets/pose-model-CItDLCP6.js">
+    <link rel="modulepreload" crossorigin href="/wizards-duel-2/assets/pose-pipeline-zKeYbDeW.js">
+    <link rel="modulepreload" crossorigin href="/wizards-duel-2/assets/settings-DOsuYSKI.js">
+    <link rel="modulepreload" crossorigin href="/wizards-duel-2/assets/motion-bYE0hprd.js">
+    <link rel="modulepreload" crossorigin href="/wizards-duel-2/assets/device-check-store-CDBQ4hSN.js">
+    <link rel="modulepreload" crossorigin href="/wizards-duel-2/assets/three.core-CtBgdmy3.js">
+    <link rel="modulepreload" crossorigin href="/wizards-duel-2/assets/fullscreen-CETxWWVy.js">
+    <link rel="modulepreload" crossorigin href="/wizards-duel-2/assets/shake-ChZ6BdTW.js">
+    <link rel="modulepreload" crossorigin href="/wizards-duel-2/assets/particles-CvrFKVRn.js">
+    <link rel="modulepreload" crossorigin href="/wizards-duel-2/assets/webgl-support-Dyk-X7Xj.js">
+    <link rel="modulepreload" crossorigin href="/wizards-duel-2/assets/fx-runtime-SD1XqN8N.js">
+    <link rel="stylesheet" crossorigin href="/wizards-duel-2/assets/fxLab-DFy57hpW.css">
+  <link rel="manifest" href="/wizards-duel-2/manifest.webmanifest"></head>
+  <body class="fxl">
+    <header class="fxl-bar">
+      <h1>Лаборатория эффектов</h1>
+      <div id="tiers" class="fxl-tiers" role="group" aria-label="Тир эффектов"></div>
+      <button id="source" type="button" data-source="synthetic">Включить камеру</button>
+      <button id="stress" type="button" aria-pressed="false" title="Клавиша S">Стресс</button>
+      <button id="measure" type="button">Замер инференса</button>
+      <span id="bloom-label" class="fxl-muted"></span>
+      <a class="fxl-link" href="./">← к игре</a>
+    </header>
+    <main class="fxl-main">
+      <div id="stage" class="fxl-stage">
+        <video id="video" autoplay muted playsinline></video>
+        <canvas id="overlay" class="fxl-overlay"></canvas>
+        <pre id="hud" class="fxl-hud" aria-live="off"></pre>
+      </div>
+      <nav id="demos" class="fxl-demos" aria-label="Демо-эффекты"></nav>
+      <p id="status" class="fxl-status" role="status">Запуск…</p>
+      <section id="results" class="fxl-results" hidden></section>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="ru" class="practice">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="color-scheme" content="dark" />
+    <title>Wizards Duel — практика (отладка)</title>
+    <script type="module" crossorigin src="/wizards-duel-2/assets/practice-X1DpvwWH.js"></script>
+    <link rel="modulepreload" crossorigin href="/wizards-duel-2/assets/modulepreload-polyfill-P2Xu9kJm.js">
+    <link rel="modulepreload" crossorigin href="/wizards-duel-2/assets/balance-8rb3x3uk.js">
+    <link rel="modulepreload" crossorigin href="/wizards-duel-2/assets/types-BVYE29_7.js">
+    <link rel="modulepreload" crossorigin href="/wizards-duel-2/assets/match-CaUuRcp2.js">
+    <link rel="modulepreload" crossorigin href="/wizards-duel-2/assets/strategies-BhKdg_U_.js">
+    <link rel="modulepreload" crossorigin href="/wizards-duel-2/assets/preload-helper-D3NDLq5R.js">
+    <link rel="modulepreload" crossorigin href="/wizards-duel-2/assets/wizards-DWakgI-S.js">
+    <link rel="modulepreload" crossorigin href="/wizards-duel-2/assets/player-model-CHnQtPP0.js">
+    <link rel="modulepreload" crossorigin href="/wizards-duel-2/assets/figure-CYH-FkUO.js">
+    <link rel="modulepreload" crossorigin href="/wizards-duel-2/assets/tokens-Cw4laJjl.js">
+    <link rel="modulepreload" crossorigin href="/wizards-duel-2/assets/half-frame-CsDNr1Vu.js">
+    <link rel="modulepreload" crossorigin href="/wizards-duel-2/assets/keypoints-By2prnzc.js">
+    <link rel="modulepreload" crossorigin href="/wizards-duel-2/assets/skeleton-DQ5zka-X.js">
+    <link rel="modulepreload" crossorigin href="/wizards-duel-2/assets/wizard-variants-Byo15j5K.js">
+    <link rel="modulepreload" crossorigin href="/wizards-duel-2/assets/wizard-figure-BHJ5FtmU.js">
+    <link rel="stylesheet" crossorigin href="/wizards-duel-2/assets/practice-DYtx-1ds.css">
+    <link rel="stylesheet" crossorigin href="/wizards-duel-2/assets/style-BWPiffe2.css">
+  <link rel="manifest" href="/wizards-duel-2/manifest.webmanifest"></head>
+  <body class="practice">
+    <canvas id="stage" class="pr-stage"></canvas>
+
+    <header class="pr-top">
+      <a class="menu-link" href="./">← к игре</a>
+      <label>Волшебник
+        <select id="wizard"></select>
+      </label>
+      <label>Слева
+        <select id="mode">
+          <option value="bot" selected>бот-новичок</option>
+          <option value="manual">Я сам (клавиши)</option>
+        </select>
+      </label>
+      <label id="novice-label">Новичок
+        <select id="novice"></select>
+      </label>
+      <button id="restart" type="button">Заново</button>
+      <span id="status" class="pr-status"></span>
+    </header>
+
+    <div id="keys" class="pr-keys" hidden>
+      <span>1 — Атака · 2 — Щит · 3 — Заряд · 0 — нет позы</span>
+      <button type="button" data-pose="attack">Атака</button>
+      <button type="button" data-pose="shield">Щит</button>
+      <button type="button" data-pose="charge">Заряд</button>
+      <button type="button" data-pose="none">нет позы</button>
+    </div>
+
+    <ol id="log" class="pr-log" aria-label="События"></ol>
+
+    <div id="result" class="pr-result" hidden>
+      <div id="result-text" class="pr-result-text"></div>
+      <button id="again" type="button">Ещё раз</button>
+    </div>
+
+  </body>
+</html>

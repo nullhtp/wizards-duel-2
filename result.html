@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="ru" class="result">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="color-scheme" content="dark" />
+    <title>Wizards Duel — результат (отладка)</title>
+    <script type="module" crossorigin src="/wizards-duel-2/assets/result-DBKygewm.js"></script>
+    <link rel="modulepreload" crossorigin href="/wizards-duel-2/assets/modulepreload-polyfill-P2Xu9kJm.js">
+    <link rel="modulepreload" crossorigin href="/wizards-duel-2/assets/balance-8rb3x3uk.js">
+    <link rel="modulepreload" crossorigin href="/wizards-duel-2/assets/tokens-Cw4laJjl.js">
+    <link rel="modulepreload" crossorigin href="/wizards-duel-2/assets/quality-Dp7DmYZh.js">
+    <link rel="modulepreload" crossorigin href="/wizards-duel-2/assets/settings-DOsuYSKI.js">
+    <link rel="modulepreload" crossorigin href="/wizards-duel-2/assets/i18n-C2_2QAWc.js">
+    <link rel="modulepreload" crossorigin href="/wizards-duel-2/assets/announcer-stub-DyUw5CMa.js">
+    <link rel="modulepreload" crossorigin href="/wizards-duel-2/assets/types-BVYE29_7.js">
+    <link rel="modulepreload" crossorigin href="/wizards-duel-2/assets/match-CaUuRcp2.js">
+    <link rel="modulepreload" crossorigin href="/wizards-duel-2/assets/strategies-BhKdg_U_.js">
+    <link rel="modulepreload" crossorigin href="/wizards-duel-2/assets/pose-icon-BzS9FefF.js">
+    <link rel="modulepreload" crossorigin href="/wizards-duel-2/assets/hold-detector-dbve77er.js">
+    <link rel="modulepreload" crossorigin href="/wizards-duel-2/assets/motion-Dh7dcKPN.js">
+    <link rel="modulepreload" crossorigin href="/wizards-duel-2/assets/kit-BnKIfnT_.js">
+    <link rel="modulepreload" crossorigin href="/wizards-duel-2/assets/result-screen-CRj0-cHq.js">
+    <link rel="modulepreload" crossorigin href="/wizards-duel-2/assets/classic-match-C1l1mUYt.js">
+    <link rel="modulepreload" crossorigin href="/wizards-duel-2/assets/player-model-CHnQtPP0.js">
+    <link rel="modulepreload" crossorigin href="/wizards-duel-2/assets/run-match-qEu9iO8t.js">
+    <link rel="modulepreload" crossorigin href="/wizards-duel-2/assets/wizards-DWakgI-S.js">
+    <link rel="modulepreload" crossorigin href="/wizards-duel-2/assets/figure-CYH-FkUO.js">
+    <link rel="modulepreload" crossorigin href="/wizards-duel-2/assets/classic-wizards-CCqRdw8Q.js">
+    <link rel="stylesheet" crossorigin href="/wizards-duel-2/assets/result-screen-7AUOv2kO.css">
+    <link rel="stylesheet" crossorigin href="/wizards-duel-2/assets/result-CLm0CNP1.css">
+    <link rel="stylesheet" crossorigin href="/wizards-duel-2/assets/style-BWPiffe2.css">
+  <link rel="manifest" href="/wizards-duel-2/manifest.webmanifest"></head>
+  <body class="result">
+    <div class="res-page-stage">
+      <div id="backdrop" class="res-page-backdrop" aria-hidden="true"></div>
+      <div id="result" class="res-page-result"></div>
+    </div>
+
+    <details id="tools" class="res-page-tools">
+      <summary title="Отладка">⚙</summary>
+      <div class="res-page-tools__body">
+        <a class="menu-link" href="./">← к игре</a>
+        <span id="status" class="res-page-status">Запуск…</span>
+        <label>Сценарий
+          <select id="scenario">
+            <option value="bots" selected>матч ботов</option>
+            <option value="knockout">нокаут</option>
+            <option value="timeout">по времени</option>
+            <option value="suddenDeath">sudden death</option>
+            <option value="forfeit">сдача</option>
+            <option value="classic">Классика</option>
+          </select>
+        </label>
+        <label>Половины
+          <select id="sides">
+            <option value="both" selected>обе</option>
+            <option value="left">только левая</option>
+            <option value="right">только правая</option>
+          </select>
+        </label>
+        <label>Язык
+          <select id="lang">
+            <option value="ru">ru</option>
+            <option value="en">en</option>
+          </select>
+        </label>
+        <button id="gesture" type="button">Сымитировать реванш-жест</button>
+        <button id="release" type="button">Отпустить руки</button>
+        <button id="absent" type="button">Выйти из кадра</button>
+        <button id="again" type="button">Ещё раз</button>
+      </div>
+    </details>
+
+    <div id="outcome" class="res-page-outcome" hidden>
+      <div id="outcome-word" class="res-page-outcome-word"></div>
+      <button id="outcome-again" type="button">Ещё раз</button>
+    </div>
+
+  </body>
+</html>

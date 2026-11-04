@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="ru" class="pose-debug">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="color-scheme" content="dark" />
+    <title>Wizards Duel — чтение поз (отладка)</title>
+    <script type="module" crossorigin src="/wizards-duel-2/assets/poseDebug-VwTF0-fS.js"></script>
+    <link rel="modulepreload" crossorigin href="/wizards-duel-2/assets/modulepreload-polyfill-P2Xu9kJm.js">
+    <link rel="modulepreload" crossorigin href="/wizards-duel-2/assets/balance-8rb3x3uk.js">
+    <link rel="modulepreload" crossorigin href="/wizards-duel-2/assets/tokens-Cw4laJjl.js">
+    <link rel="modulepreload" crossorigin href="/wizards-duel-2/assets/pose-icon-BzS9FefF.js">
+    <link rel="modulepreload" crossorigin href="/wizards-duel-2/assets/motion-Dh7dcKPN.js">
+    <link rel="modulepreload" crossorigin href="/wizards-duel-2/assets/half-frame-CsDNr1Vu.js">
+    <link rel="modulepreload" crossorigin href="/wizards-duel-2/assets/keypoints-By2prnzc.js">
+    <link rel="modulepreload" crossorigin href="/wizards-duel-2/assets/skeleton-DQ5zka-X.js">
+    <link rel="modulepreload" crossorigin href="/wizards-duel-2/assets/body-geometry-DFQukZVj.js">
+    <link rel="modulepreload" crossorigin href="/wizards-duel-2/assets/camera-overlay-BLvIbNwn.js">
+    <link rel="modulepreload" crossorigin href="/wizards-duel-2/assets/bench-stats-lVxMquJ3.js">
+    <link rel="modulepreload" crossorigin href="/wizards-duel-2/assets/half-cropper-D5wlP5iv.js">
+    <link rel="modulepreload" crossorigin href="/wizards-duel-2/assets/pose-classifier-FRc4I_9i.js">
+    <link rel="modulepreload" crossorigin href="/wizards-duel-2/assets/pose-model-CItDLCP6.js">
+    <link rel="modulepreload" crossorigin href="/wizards-duel-2/assets/pose-pipeline-zKeYbDeW.js">
+    <link rel="stylesheet" crossorigin href="/wizards-duel-2/assets/poseDebug-j2tP5FAX.css">
+    <link rel="stylesheet" crossorigin href="/wizards-duel-2/assets/style-BWPiffe2.css">
+  <link rel="manifest" href="/wizards-duel-2/manifest.webmanifest"></head>
+  <body class="pose-debug">
+    <div class="pd-stage">
+      <video id="video" autoplay muted playsinline></video>
+      <canvas id="overlay"></canvas>
+    </div>
+
+    <header class="pd-top">
+      <a class="menu-link" href="./">← к игре</a>
+      <span id="status" class="pd-status">Запуск…</span>
+      <label>Делегат
+        <select id="delegate">
+          <option value="GPU" selected>GPU → CPU при ошибке</option>
+          <option value="CPU">только CPU</option>
+        </select>
+      </label>
+      <label>Половина
+        <select id="half-size">
+          <option value="full" selected>320×480</option>
+          <option value="reduced">160×240</option>
+        </select>
+      </label>
+      <label>Модель
+        <select id="model">
+          <option value="lite" selected>lite</option>
+          <option value="full">full (~9 МБ по сети)</option>
+        </select>
+      </label>
+      <button id="record" type="button">Записать 10 с</button>
+      <span id="n-model" class="pd-muted">—</span>
+    </header>
+    <p id="error" class="bench-error pd-error" hidden></p>
+
+    <section class="pd-panel pd-left" aria-label="Левый игрок">
+      <h2>Левый игрок</h2>
+      <dl>
+        <dt>сырое</dt><dd id="l-raw">—</dd>
+        <dt>подтверждённое</dt><dd id="l-confirmed">—</dd>
+        <dt>рука к сопернику</dt><dd id="l-inner">—</dd>
+        <dt>рука наружу</dt><dd id="l-outer">—</dd>
+        <dt>ширина плеч</dt><dd id="l-sw">—</dd>
+        <dt>чтений/с</dt><dd id="l-rate">—</dd>
+        <dt>инференс</dt><dd id="l-inf">—</dd>
+      </dl>
+    </section>
+    <section class="pd-panel pd-right" aria-label="Правый игрок">
+      <h2>Правый игрок</h2>
+      <dl>
+        <dt>сырое</dt><dd id="r-raw">—</dd>
+        <dt>подтверждённое</dt><dd id="r-confirmed">—</dd>
+        <dt>рука к сопернику</dt><dd id="r-inner">—</dd>
+        <dt>рука наружу</dt><dd id="r-outer">—</dd>
+        <dt>ширина плеч</dt><dd id="r-sw">—</dd>
+        <dt>чтений/с</dt><dd id="r-rate">—</dd>
+        <dt>инференс</dt><dd id="r-inf">—</dd>
+      </dl>
+    </section>
+
+    <section id="log-panel" class="pd-log" hidden>
+      <h2>Запись <span id="log-title"></span> <button id="log-close" type="button">закрыть</button></h2>
+      <p id="log-shares" class="pd-muted"></p>
+      <textarea id="log" rows="8" readonly spellcheck="false"></textarea>
+    </section>
+
+  </body>
+</html>

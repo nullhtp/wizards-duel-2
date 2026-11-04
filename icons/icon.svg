@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs><radialGradient id="bg-glow" cx="0.5" cy="0.42" r="0.6"><stop offset="0" stop-color="#7A4DFF" stop-opacity="0.75"/><stop offset="1" stop-color="#7A4DFF" stop-opacity="0"/></radialGradient></defs>
+  <rect width="512" height="512" rx="112.64" fill="#1B1036"/>
+  <rect width="512" height="512" rx="112.64" fill="url(#bg-glow)"/>
+  <svg x="15.360000000000014" y="15.360000000000014" width="481.28" height="481.28" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" aria-hidden="true" focusable="false">
+  <defs>
+    <clipPath id="icon-512-a-clip"><circle cx="100" cy="100" r="84"/></clipPath>
+    <linearGradient id="icon-512-a-sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#FF9E6B"/><stop offset="0.45" stop-color="#FF6FA1"/><stop offset="0.8" stop-color="#7A4DFF"/><stop offset="1" stop-color="#25125C"/>
+    </linearGradient>
+    <linearGradient id="icon-512-a-hat" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#3A1A8C"/><stop offset="0.42" stop-color="#3A1A8C"/><stop offset="0.42" stop-color="#5B2BC4"/><stop offset="0.78" stop-color="#5B2BC4"/><stop offset="0.78" stop-color="#8E5BFF"/>
+    </linearGradient>
+    <linearGradient id="icon-512-a-gold" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#FFE58A"/><stop offset="0.5" stop-color="#FFC531"/><stop offset="0.5" stop-color="#E08A00"/>
+    </linearGradient>
+  </defs>
+  <circle cx="100" cy="100" r="92" fill="#1B1036"/>
+  <g clip-path="url(#icon-512-a-clip)">
+  <circle cx="100" cy="100" r="84" fill="url(#icon-512-a-sky)"/>
+  <path d="M28 128 Q40 110 58 116 Q66 98 86 106 Q100 92 116 104 Q134 94 146 110 Q164 104 172 124 L178 140 Q100 190 22 140 Z" fill="#FFD6EA" opacity="0.92"/>
+  <path d="M22 146 Q40 132 60 140 Q80 128 100 140 Q122 128 142 140 Q160 132 178 146 Q150 186 100 186 Q50 186 22 146 Z" fill="#B693F2"/>
+  </g>
+  <circle cx="100" cy="100" r="84" fill="none" stroke="#FFC531" stroke-width="6"/>
+  <circle cx="100" cy="100" r="88" fill="none" stroke="#1B1036" stroke-width="3"/>
+  <!-- Поля шляпы -->
+  <ellipse cx="100" cy="142" rx="66" ry="17" fill="#1B1036"/>
+  <ellipse cx="100" cy="139" rx="61" ry="13" fill="#3A1A8C"/>
+  <ellipse cx="100" cy="136" rx="58" ry="10" fill="#5B2BC4"/>
+  <!-- Конус с загнутой вершиной -->
+  <path d="M60 138 C66 108 74 76 90 52 C98 40 110 30 126 24 C138 20 148 26 150 36 C142 32 132 34 126 42 C118 54 122 90 140 138 Z" fill="#1B1036"/>
+  <path d="M66 135 C72 108 79 80 93 57 C101 45 111 37 124 31 C133 28 140 30 143 34 C135 34 127 38 121 46 C113 58 117 92 133 135 Z" fill="url(#icon-512-a-hat)"/>
+  <path d="M82 92 C86 78 92 66 100 56" stroke="#FFFFFF" stroke-opacity="0.55" stroke-width="5" stroke-linecap="round" fill="none"/>
+  <!-- Лента и звезда -->
+  <path d="M63 122 Q100 132 137 122 L139 134 Q100 146 61 134 Z" fill="#1B1036"/>
+  <path d="M66 124 Q100 133 134 124 L135 131 Q100 141 65 131 Z" fill="url(#icon-512-a-gold)"/>
+  <path d="M100.00 113.00L103.97 122.54L114.27 123.36L106.42 130.09L108.82 140.14L100.00 134.75L91.18 140.14L93.58 130.09L85.73 123.36L96.03 122.54Z" fill="#1B1036"/>
+  <path d="M100.00 117.00L102.91 124.00L110.46 124.60L104.71 129.53L106.47 136.90L100.00 132.95L93.53 136.90L95.29 129.53L89.54 124.60L97.09 124.00Z" fill="#FFF4C2"/>
+  <!-- Искры огня и льда -->
+  <path d="M48 57Q50.86 67.14 61 70Q50.86 72.86 48 83Q45.14 72.86 35 70Q45.14 67.14 48 57Z" fill="#1B1036"/>
+  <path d="M48 61Q49.98 68.02 57 70Q49.98 71.98 48 79Q46.02 71.98 39 70Q46.02 68.02 48 61Z" fill="#FFB13B"/>
+  <circle cx="48" cy="70" r="3" fill="#FF4438"/>
+  <path d="M156 70Q158.64 79.36 168 82Q158.64 84.64 156 94Q153.36 84.64 144 82Q153.36 79.36 156 70Z" fill="#1B1036"/>
+  <path d="M156 74Q157.76 80.24 164 82Q157.76 83.76 156 90Q154.24 83.76 148 82Q154.24 80.24 156 74Z" fill="#7FF3FF"/>
+  <circle cx="156" cy="82" r="2.6" fill="#2E8BFF"/>
+  <path d="M142 46Q143.32 50.68 148 52Q143.32 53.32 142 58Q140.68 53.32 136 52Q140.68 50.68 142 46Z" fill="#FFFFFF"/>
+</svg>
+</svg>

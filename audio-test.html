@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="ru" class="audio-test">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="color-scheme" content="dark" />
+    <title>Wizards Duel — звук (отладка)</title>
+    <script type="module" crossorigin src="/wizards-duel-2/assets/audioTest-sB1ocZH-.js"></script>
+    <link rel="modulepreload" crossorigin href="/wizards-duel-2/assets/modulepreload-polyfill-P2Xu9kJm.js">
+    <link rel="modulepreload" crossorigin href="/wizards-duel-2/assets/balance-8rb3x3uk.js">
+    <link rel="modulepreload" crossorigin href="/wizards-duel-2/assets/quality-Dp7DmYZh.js">
+    <link rel="modulepreload" crossorigin href="/wizards-duel-2/assets/settings-DOsuYSKI.js">
+    <link rel="modulepreload" crossorigin href="/wizards-duel-2/assets/audio-settings-9vCoOvq0.js">
+    <link rel="modulepreload" crossorigin href="/wizards-duel-2/assets/types-BVYE29_7.js">
+    <link rel="modulepreload" crossorigin href="/wizards-duel-2/assets/match-CaUuRcp2.js">
+    <link rel="modulepreload" crossorigin href="/wizards-duel-2/assets/strategies-BhKdg_U_.js">
+    <link rel="modulepreload" crossorigin href="/wizards-duel-2/assets/battle-audio-BsJbzdd7.js">
+    <link rel="modulepreload" crossorigin href="/wizards-duel-2/assets/player-model-CHnQtPP0.js">
+    <link rel="modulepreload" crossorigin href="/wizards-duel-2/assets/run-match-qEu9iO8t.js">
+    <link rel="modulepreload" crossorigin href="/wizards-duel-2/assets/classic-match-C1l1mUYt.js">
+    <link rel="modulepreload" crossorigin href="/wizards-duel-2/assets/classic-audio-DlculvSI.js">
+    <link rel="modulepreload" crossorigin href="/wizards-duel-2/assets/sound-analysis-W9Upt9u_.js">
+    <link rel="stylesheet" crossorigin href="/wizards-duel-2/assets/audioTest-vGYgKiIz.css">
+    <link rel="stylesheet" crossorigin href="/wizards-duel-2/assets/style-BWPiffe2.css">
+  <link rel="manifest" href="/wizards-duel-2/manifest.webmanifest"></head>
+  <body class="audio-test">
+    <main class="at-page">
+      <header class="at-header">
+        <p><a class="menu-link" href="./">← к игре</a></p>
+        <h1>Звук (отладка)</h1>
+        <p id="status" class="at-status">Звуки готовятся…</p>
+        <div class="at-controls">
+          <button id="unlock" type="button" class="at-primary">Включить звук</button>
+          <label>Громкость <input id="volume" type="range" min="0" max="1" step="0.05" /></label>
+          <label><input id="mute" type="checkbox" /> без звука</label>
+          <label
+            >Упреждение свиста
+            <select id="lead">
+              <option value="auto" selected>авто</option>
+              <option value="0">0 мс</option>
+              <option value="0.08">80 мс</option>
+            </select>
+          </label>
+        </div>
+        <details class="at-details">
+          <summary>Отчёт синтеза и признаки звуков</summary>
+          <div id="report" class="at-scroll"></div>
+        </details>
+      </header>
+
+      <section class="at-section">
+        <h2>Словарь: 15 звуков</h2>
+        <p class="muted">Звук играется так, как он слышен в бою: свист летит через панораму, отражение — звон и обратный свист, тиканье — последние 3 секунды таймера, сердцебиение — два удара, гул и таяние — несколько секунд.</p>
+        <div class="at-scroll">
+          <table class="at-table">
+            <thead>
+              <tr><th>#</th><th>Событие</th><th>Звук по словарю</th><th>Сторона</th><th>Играть</th></tr>
+            </thead>
+            <tbody id="vocab"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="at-section">
+        <h2>Классика: 5 своих звуков</h2>
+        <p class="muted">Звуки раундового режима ревизии 2, которых нет в словаре боя; остальное в Классике — звуки словаря выше. Бипы и обмен звучат по центру, фиксация и отдача — со стороны игрока. «Раунд целиком» — три бипа через 0,8 с, CAST, щелчки фиксации справа и слева, отражение справа и отдача слева.</p>
+        <div class="at-controls">
+          <button id="classic-round" type="button" class="at-primary">▶ Раунд целиком</button>
+        </div>
+        <div class="at-scroll">
+          <table class="at-table">
+            <thead>
+              <tr><th>#</th><th>Событие</th><th>Звук</th><th>Сторона</th><th>Играть</th></tr>
+            </thead>
+            <tbody id="classic-vocab"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="at-section">
+        <h2>Тест вслепую</h2>
+        <p class="muted">Протокол — <code>_docs/audio-protocol.md</code>. Участник сидит спиной к экрану с закрытыми глазами и называет событие и сторону; ведущий отмечает ответ. Клавиши: <kbd>Пробел</kbd> — сыграть пробу, <kbd>R</kbd> — повторить, <kbd>1</kbd>–<kbd>9</kbd>, <kbd>0</kbd>, <kbd>Q</kbd>–<kbd>T</kbd> — событие, <kbd>←</kbd> <kbd>↓</kbd> <kbd>→</kbd> — сторона, <kbd>Enter</kbd> — записать.</p>
+        <div class="at-controls">
+          <label>Участник <input id="participant" type="text" size="16" placeholder="имя" /></label>
+          <label>Набор
+            <select id="blind-deck">
+              <option value="duel" selected>Дуэль: 15 звуков × 2</option>
+              <option value="classic">Классика: 8 звуков × 2</option>
+            </select>
+          </label>
+          <label><input id="blind-music" type="checkbox" /> с музыкой</label>
+          <button id="blind-start" type="button" class="at-primary">Начать тест</button>
+          <button id="blind-stop" type="button" hidden>Прервать</button>
+        </div>
+        <div id="blind" class="at-blind" hidden>
+          <div class="at-blind-head">
+            <strong id="blind-progress">Проба 1 из 30</strong>
+            <button id="blind-play" type="button" class="at-primary">▶ Сыграть пробу</button>
+            <button id="blind-replay" type="button">Повторить</button>
+            <span id="blind-answer" class="at-answer">ответ: —</span>
+            <button id="blind-record" type="button" class="at-primary" disabled>Записать</button>
+          </div>
+          <div id="blind-sounds" class="at-grid"></div>
+          <div id="blind-sides" class="at-sides"></div>
+        </div>
+        <div id="blind-result"></div>
+        <h3>Сессии</h3>
+        <div id="sessions"></div>
+        <div class="at-controls">
+          <button id="sessions-copy" type="button">Скопировать отчёт (Markdown)</button>
+          <button id="sessions-clear" type="button">Очистить сессии</button>
+        </div>
+      </section>
+
+      <section class="at-section">
+        <h2>Матч ботов со звуком</h2>
+        <p class="muted">Два бота из симулятора играют в реальном времени (60 тиков в секунду), звук — тот же движок, что в бою. Кнопки сценариев правят состояние матча напрямую.</p>
+        <div class="at-controls">
+          <label>Красный (слева) <select id="bot-left"></select></label>
+          <label>Синий (справа) <select id="bot-right"></select></label>
+          <label>Зерно <input id="bot-seed" type="number" value="1" min="1" step="1" /></label>
+          <button id="bot-start" type="button" class="at-primary">Старт</button>
+          <button id="bot-stop" type="button">Стоп</button>
+        </div>
+        <div class="at-controls">
+          <button id="sc-absent" type="button">Левый вышел из кадра</button>
+          <button id="sc-timer" type="button">К 12 с до конца</button>
+          <button id="sc-laststand" type="button">Последний рубеж (левый 20)</button>
+          <button id="sc-sudden" type="button">Sudden death</button>
+        </div>
+        <pre id="board" class="at-board">Матч не запущен.</pre>
+      </section>
+    </main>
+  </body>
+</html>

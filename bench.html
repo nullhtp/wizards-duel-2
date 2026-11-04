@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="ru" class="bench">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="color-scheme" content="dark" />
+    <title>Wizards Duel — стенд замеров</title>
+    <script type="module" crossorigin src="/wizards-duel-2/assets/bench-BZQgfDrM.js"></script>
+    <link rel="modulepreload" crossorigin href="/wizards-duel-2/assets/modulepreload-polyfill-P2Xu9kJm.js">
+    <link rel="modulepreload" crossorigin href="/wizards-duel-2/assets/balance-8rb3x3uk.js">
+    <link rel="modulepreload" crossorigin href="/wizards-duel-2/assets/bench-report-BXXA_ixQ.js">
+    <link rel="modulepreload" crossorigin href="/wizards-duel-2/assets/bench-stats-lVxMquJ3.js">
+    <link rel="modulepreload" crossorigin href="/wizards-duel-2/assets/tokens-Cw4laJjl.js">
+    <link rel="modulepreload" crossorigin href="/wizards-duel-2/assets/half-frame-CsDNr1Vu.js">
+    <link rel="modulepreload" crossorigin href="/wizards-duel-2/assets/keypoints-By2prnzc.js">
+    <link rel="modulepreload" crossorigin href="/wizards-duel-2/assets/skeleton-DQ5zka-X.js">
+    <link rel="modulepreload" crossorigin href="/wizards-duel-2/assets/half-cropper-D5wlP5iv.js">
+    <link rel="modulepreload" crossorigin href="/wizards-duel-2/assets/pose-model-CItDLCP6.js">
+    <link rel="modulepreload" crossorigin href="/wizards-duel-2/assets/latency-probe-D8ymnhA4.js">
+    <link rel="stylesheet" crossorigin href="/wizards-duel-2/assets/bench-BYY3gL00.css">
+    <link rel="stylesheet" crossorigin href="/wizards-duel-2/assets/style-BWPiffe2.css">
+  <link rel="manifest" href="/wizards-duel-2/manifest.webmanifest"></head>
+  <body class="bench">
+    <div id="flash" class="flash" aria-hidden="true"></div>
+    <main class="bench-page">
+      <header class="bench-header">
+        <h1>Стенд замеров</h1>
+        <p class="bench-sub">
+          Фаза 0: инференс на половине кадра, задержка аудио, сквозная задержка «рука → экран».
+          <a class="menu-link" href="./">← к игре</a>
+        </p>
+        <p id="status" class="bench-status">Запуск…</p>
+        <p id="error" class="bench-error" hidden></p>
+      </header>
+
+      <section class="bench-stage">
+        <div class="bench-video-wrap">
+          <video id="video" autoplay muted playsinline></video>
+          <canvas id="overlay"></canvas>
+        </div>
+      </section>
+
+      <section class="bench-controls">
+        <label>Половина
+          <select id="half-size">
+            <option value="full" selected>320×480 (полная)</option>
+            <option value="reduced">160×240 (запасной режим)</option>
+          </select>
+        </label>
+        <label>Модель
+          <select id="model">
+            <option value="lite" selected>lite (в сборке)</option>
+            <option value="full">full (скачает ~9 МБ по сети)</option>
+          </select>
+        </label>
+        <label>Делегат
+          <select id="delegate">
+            <option value="GPU" selected>GPU → CPU при ошибке</option>
+            <option value="CPU">только CPU</option>
+          </select>
+        </label>
+        <button id="reset" type="button">Сбросить статистику</button>
+        <button id="sound" type="button">Тест звука</button>
+        <button id="copy" type="button">Скопировать результаты</button>
+      </section>
+
+      <section class="bench-numbers">
+        <div class="num big"><span class="label">инференс, последний кадр</span><strong id="n-last">—</strong><span class="unit">мс</span></div>
+        <div class="num"><span class="label">среднее / p95 за 30</span><strong id="n-30">—</strong><span class="unit">мс</span></div>
+        <div class="num"><span class="label">среднее / p95 за 300</span><strong id="n-300">—</strong><span class="unit">мс</span></div>
+        <div class="num"><span class="label">доля кадров дольше <span id="n-slow-threshold">67</span> мс</span><strong id="n-slow">—</strong></div>
+        <div class="num"><span class="label">чтений/с: левая / правая</span><strong id="n-readings">—</strong></div>
+        <div class="num"><span class="label">к/с камеры (цикл: <span id="n-loop">—</span>)</span><strong id="n-fps">—</strong></div>
+        <div class="num"><span class="label">делегат</span><strong id="n-delegate">—</strong></div>
+        <div class="num"><span class="label">модель · половина · кадров</span><strong id="n-model">—</strong></div>
+        <div class="num wide"><span class="label">GPU renderer</span><strong id="n-renderer" class="small">—</strong></div>
+        <div class="num wide"><span class="label">userAgent · камера</span><strong id="n-ua" class="small">—</strong></div>
+      </section>
+
+      <section id="verdict" class="bench-verdict">Вердикт: ждём кадры…</section>
+
+      <section class="bench-audio">
+        <h2>Звук</h2>
+        <p id="audio-info">Нажмите «Тест звука»: создаст AudioContext, сыграет клик и покажет задержки.</p>
+      </section>
+
+      <section class="bench-flash">
+        <h2>
+          <label><input id="flash-mode" type="checkbox" /> Вспышка по движению</label>
+          <label class="inline">порог <input id="flash-threshold" type="range" min="0.5" max="10" step="0.5" value="3" />
+            <span id="flash-threshold-value">3,0</span> SW/с</label>
+          <span id="flash-count" class="muted">вспышек: 0</span>
+        </h2>
+        <ol class="bench-instructions">
+          <li>Включите режим. Когда горизонтальная скорость запястья превысит порог (в ширинах плеч в секунду), весь экран вспыхнет белым на 100 мс, не чаще раза в полсекунды.</li>
+          <li>Снимите вторым телефоном на 240 к/с (slow-motion) так, чтобы в кадре были и экран стенда, и ваша рука. Резко выбросьте руку в сторону.</li>
+          <li>В ролике посчитайте кадры от первого кадра, где рука начала двигаться, до первого кадра вспышки. Задержка = кадры × 4,17 мс.</li>
+          <li>Сделайте 10 замеров на устройство, запишите среднее и разброс в колонку «сквозная задержка» таблицы «Замеры (фаза 0)» в <code>_docs/stack.md</code>.</li>
+        </ol>
+      </section>
+
+      <section class="bench-results">
+        <h2>Результаты</h2>
+        <p class="muted">Кнопка «Скопировать результаты» кладёт JSON и строку таблицы в буфер; текст ниже можно скопировать вручную.</p>
+        <textarea id="results" rows="14" readonly spellcheck="false"></textarea>
+      </section>
+    </main>
+  </body>
+</html>

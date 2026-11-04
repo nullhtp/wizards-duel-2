@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="ru" class="ann-page">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="color-scheme" content="dark" />
+    <title>Wizards Duel — диктор (отладка)</title>
+    <script type="module" crossorigin src="/wizards-duel-2/assets/announcerTest-YG77wdDJ.js"></script>
+    <link rel="modulepreload" crossorigin href="/wizards-duel-2/assets/modulepreload-polyfill-P2Xu9kJm.js">
+    <link rel="modulepreload" crossorigin href="/wizards-duel-2/assets/quality-Dp7DmYZh.js">
+    <link rel="modulepreload" crossorigin href="/wizards-duel-2/assets/settings-DOsuYSKI.js">
+    <link rel="modulepreload" crossorigin href="/wizards-duel-2/assets/i18n-C2_2QAWc.js">
+    <link rel="modulepreload" crossorigin href="/wizards-duel-2/assets/announcer-stub-DyUw5CMa.js">
+    <link rel="modulepreload" crossorigin href="/wizards-duel-2/assets/audio-settings-9vCoOvq0.js">
+    <link rel="modulepreload" crossorigin href="/wizards-duel-2/assets/announcer-Bh0wnKwk.js">
+    <link rel="stylesheet" crossorigin href="/wizards-duel-2/assets/announcerTest-_DIIsvZD.css">
+    <link rel="stylesheet" crossorigin href="/wizards-duel-2/assets/style-BWPiffe2.css">
+  <link rel="manifest" href="/wizards-duel-2/manifest.webmanifest"></head>
+  <body class="ann-page">
+    <main class="ann">
+      <header class="ann-header">
+        <a class="menu-link" href="./">← к игре</a>
+        <h1>Диктор (отладка)</h1>
+        <p id="status" class="ann-status">Звук не включён — нажмите «Включить звук».</p>
+      </header>
+
+      <section class="ann-controls" aria-label="Управление">
+        <button id="unlock" type="button" class="ann-primary">Включить звук</button>
+        <label>Язык
+          <select id="lang">
+            <option value="ru">Русский</option>
+            <option value="en">English</option>
+          </select>
+        </label>
+        <label>Громкость диктора
+          <input id="volume" type="range" min="0" max="1" step="0.05" />
+          <output id="volume-out" class="ann-num"></output>
+        </label>
+        <label><input id="mute" type="checkbox" /> Звук выключен (общий)</label>
+        <label class="ann-match"><input id="match" type="checkbox" /> В бою (блокировка)</label>
+        <button id="scenario" type="button">Сценарий матча</button>
+      </section>
+
+      <p id="speaking" class="ann-speaking" aria-live="polite">молчит</p>
+
+      <section id="lines" class="ann-lines" aria-label="Реплики"></section>
+
+      <section class="ann-log-wrap">
+        <h2>Журнал <button id="clear" type="button" class="ann-small">очистить</button></h2>
+        <ol id="log" class="ann-log"></ol>
+      </section>
+    </main>
+
+  </body>
+</html>

@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="ru" class="pose-check">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="color-scheme" content="dark" />
+    <title>Wizards Duel — проверка поз (отладка)</title>
+    <script type="module" crossorigin src="/wizards-duel-2/assets/poseCheck-q_K6Q7He.js"></script>
+    <link rel="modulepreload" crossorigin href="/wizards-duel-2/assets/modulepreload-polyfill-P2Xu9kJm.js">
+    <link rel="modulepreload" crossorigin href="/wizards-duel-2/assets/balance-8rb3x3uk.js">
+    <link rel="modulepreload" crossorigin href="/wizards-duel-2/assets/tokens-Cw4laJjl.js">
+    <link rel="modulepreload" crossorigin href="/wizards-duel-2/assets/pose-icon-BzS9FefF.js">
+    <link rel="modulepreload" crossorigin href="/wizards-duel-2/assets/glyphs-Dd_bJTDw.js">
+    <link rel="modulepreload" crossorigin href="/wizards-duel-2/assets/quality-Dp7DmYZh.js">
+    <link rel="modulepreload" crossorigin href="/wizards-duel-2/assets/settings-DOsuYSKI.js">
+    <link rel="modulepreload" crossorigin href="/wizards-duel-2/assets/i18n-C2_2QAWc.js">
+    <link rel="modulepreload" crossorigin href="/wizards-duel-2/assets/announcer-stub-DyUw5CMa.js">
+    <link rel="modulepreload" crossorigin href="/wizards-duel-2/assets/menu-texts-B_44wxG-.js">
+    <link rel="modulepreload" crossorigin href="/wizards-duel-2/assets/page-lang-p55ESN_R.js">
+    <link rel="modulepreload" crossorigin href="/wizards-duel-2/assets/motion-Dh7dcKPN.js">
+    <link rel="modulepreload" crossorigin href="/wizards-duel-2/assets/half-frame-CsDNr1Vu.js">
+    <link rel="modulepreload" crossorigin href="/wizards-duel-2/assets/keypoints-By2prnzc.js">
+    <link rel="modulepreload" crossorigin href="/wizards-duel-2/assets/skeleton-DQ5zka-X.js">
+    <link rel="modulepreload" crossorigin href="/wizards-duel-2/assets/body-geometry-DFQukZVj.js">
+    <link rel="modulepreload" crossorigin href="/wizards-duel-2/assets/camera-overlay-BLvIbNwn.js">
+    <link rel="modulepreload" crossorigin href="/wizards-duel-2/assets/types-BVYE29_7.js">
+    <link rel="modulepreload" crossorigin href="/wizards-duel-2/assets/hold-detector-dbve77er.js">
+    <link rel="modulepreload" crossorigin href="/wizards-duel-2/assets/kit-BnKIfnT_.js">
+    <link rel="modulepreload" crossorigin href="/wizards-duel-2/assets/pose-check-screen-BRpLbV4z.js">
+    <link rel="modulepreload" crossorigin href="/wizards-duel-2/assets/bench-stats-lVxMquJ3.js">
+    <link rel="modulepreload" crossorigin href="/wizards-duel-2/assets/half-cropper-D5wlP5iv.js">
+    <link rel="modulepreload" crossorigin href="/wizards-duel-2/assets/pose-classifier-FRc4I_9i.js">
+    <link rel="modulepreload" crossorigin href="/wizards-duel-2/assets/pose-model-CItDLCP6.js">
+    <link rel="modulepreload" crossorigin href="/wizards-duel-2/assets/pose-pipeline-zKeYbDeW.js">
+    <link rel="stylesheet" crossorigin href="/wizards-duel-2/assets/pose-check-screen-CZk1pDau.css">
+    <link rel="stylesheet" crossorigin href="/wizards-duel-2/assets/poseCheck-CATgvW0a.css">
+    <link rel="stylesheet" crossorigin href="/wizards-duel-2/assets/style-BWPiffe2.css">
+  <link rel="manifest" href="/wizards-duel-2/manifest.webmanifest"></head>
+  <body class="pose-check">
+    <div class="pcp-stage">
+      <video id="video" autoplay muted playsinline></video>
+      <canvas id="overlay"></canvas>
+      <div id="check" class="pcp-check"></div>
+    </div>
+
+    <header class="pcp-top ui-panel ui-panel--glass">
+      <a class="pcp-back ui-btn ui-btn--ghost ui-btn--sm" href="./"><span class="ui-btn__label">К игре</span></a>
+      <span id="status" class="pcp-status">Запуск…</span>
+      <button id="skip" class="ui-switch" type="button" role="switch" aria-checked="false">
+        <span class="ui-switch__label">Пропустить проверку поз</span><span class="ui-switch__track"></span>
+      </button>
+      <div id="sides" class="ui-seg" role="radiogroup" aria-label="Половины">
+        <button class="ui-seg__opt" type="button" role="radio" aria-checked="true" data-value="both">Обе</button>
+        <button class="ui-seg__opt" type="button" role="radio" aria-checked="false" data-value="left">Левая</button>
+        <button class="ui-seg__opt" type="button" role="radio" aria-checked="false" data-value="right">Правая</button>
+      </div>
+    </header>
+    <p id="error" class="pcp-error" role="alert" hidden></p>
+
+    <div id="fight" class="pcp-fight" hidden>
+      <div class="pcp-fight__rays" aria-hidden="true"></div>
+      <div class="pcp-fight-word ui-banner ui-banner--gold"><span class="ui-banner__text">БОЙ!</span></div>
+      <button id="again" class="ui-btn ui-btn--primary ui-btn--lg" type="button"><span class="ui-btn__label">Ещё раз</span></button>
+    </div>
+
+  </body>
+</html>

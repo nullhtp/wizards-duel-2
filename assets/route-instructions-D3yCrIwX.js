@@ -1,0 +1,1 @@
+import{t as e}from"./instructions-screen-CEMrJupJ.js";var t=t=>{let n=new e({root:t.root,balance:t.balance,lang:t.lang(),onBack:()=>t.back(),onLangChange:e=>t.setLang(e)});return n.mount(),{dispose:()=>n.unmount()}};export{t as openInstructions};

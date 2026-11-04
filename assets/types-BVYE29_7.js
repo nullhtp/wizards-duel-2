@@ -1,0 +1,1 @@
+var e=[`left`,`right`],t=e=>e===`left`?`right`:`left`;export{t as n,e as t};
